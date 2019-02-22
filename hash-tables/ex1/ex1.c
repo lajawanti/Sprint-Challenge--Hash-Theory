@@ -3,13 +3,33 @@
 #include "hashtable.h"
 #include "ex1.h"
 
+//here Answer is struct so return must be of same type as signature says
+/*typedef struct Answer {
+      int index_1;
+      int index_2;
+  } Answer;
+*/
+//Need Answer type variable to work on
+//need to return indices of weights 
+    //iterate through hash table 
 Answer *get_indices_of_item_weights(int *weights, int length, int limit)
 {
-  HashTable *ht = create_hash_table(16);
+      HashTable *ht = create_hash_table(16);
+      // YOUR CODE HERE
 
-  // YOUR CODE HERE
+      Answer *result = malloc(sizeof(Answer *));
+      for(int i = 0; i < length; i++) {
+          //in hashtable.c hast-table-retrieve() returns -1 if not found
+          if((hash_table_retrieve(ht, weights[i])) != -1) {
+                result->index_1 = i;
+                result->index_2 = hash_table_retrieve(ht, weights[i]);
+                return result; 
+          }
+          else {
 
-  return NULL;
+          }
+      }
+      return NULL;
 }
 
 void print_answer(Answer *answer)
