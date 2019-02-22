@@ -26,7 +26,7 @@ Answer *get_indices_of_item_weights(int *weights, int length, int limit)
                 return result; 
           }
           else {
-
+                hash_table_insert(ht, (limit - weights[i]), i);
           }
       }
       return NULL;
@@ -46,7 +46,8 @@ int main(void)
 {
 
   // TEST 1
-  int weights_1 = {9};
+  int weights_1 = {9}; 
+  //Answer *get_indices_of_item_weights(int *weights, int length, int limit)
   Answer *answer_1 = get_indices_of_item_weights(&weights_1, 1, 9);
   print_answer(answer_1);  // NULL
 
