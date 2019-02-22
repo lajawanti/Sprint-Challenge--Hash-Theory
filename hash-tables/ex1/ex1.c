@@ -22,6 +22,7 @@ Answer *get_indices_of_item_weights(int *weights, int length, int limit)
           //in hashtable.c hast-table-retrieve() returns -1 if not found
           if((hash_table_retrieve(ht, weights[i])) != -1) {
                 result->index_1 = i;
+                printf("\n i = %d", i);
                 result->index_2 = hash_table_retrieve(ht, weights[i]);
                 return result; 
           }
